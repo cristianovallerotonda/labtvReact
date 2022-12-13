@@ -1,36 +1,26 @@
-import "./searchView.scss";
-import { SetStateAction, useEffect, useState } from "react";
-import { useFilmSearch } from "./useFilmSearch";
+import { useState } from "react";
+import Films from "../../component/films/Films";
+import SearchBox from "../../component/searchBox/SearchBox";
 
 function SearchView() {
-  const [inputValue, setInputValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [movies, setMovies] = useState([]);
 
-  const handleChange = (event: {
-    target: { value: SetStateAction<string> };
-  }) => {
-    setInputValue(event.target.value);
+  const getMovieRequest = async () => {
+    const url = "https://imdb-api.com/en/API/Search/k_0a9so352/" + searchValue;
+    const response = await fetch(url);
+    const responseJSON = await response.json();
+
+    if (responseJSON.results) {
+      setMovies(responseJSON.results);
+    }
   };
 
-  useEffect(() => {
-    console.log("aggiorno");
-  }, [inputValue]);
-
-  const handleClick = () => {};
-
   return (
-    <div className="search">
-      <input
-        placeholder="Ricerca il film"
-        type="text"
-        id="message"
-        name="message"
-        onChange={handleChange}
-      />
-      <button onClick={handleClick} id="button_ricerca">
-        <i className="fa fa-search"></i>
-      </button>
-    </div>
+    <>
+      <SearchBox handleChange={setSearchValue} onClick={getMovieRequest} />
+      {movies ? <Films films={movies}></Films> : null}
+    </>
   );
 }
 
