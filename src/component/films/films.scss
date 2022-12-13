@@ -1,0 +1,35 @@
+.filmsList {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100%;
+}
+
+.filmsList__item {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 480px) {
+  /* creo griglia allineata con il resto della pagina */
+  .filmsList {
+    margin: 0 -16px;
+  }
+
+  .filmsList__item {
+    width: calc(100% / 2);
+    padding: 16px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .filmsList__item {
+    width: calc(100% / 3);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .filmsList__item {
+    width: calc(100% / 4);
+  }
+}

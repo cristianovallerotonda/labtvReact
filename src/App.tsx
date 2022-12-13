@@ -1,56 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import FooterComponent from "./component/footer/footer";
+import HeaderComponent from "./component/header/Header";
+import Navbar from "./component/navbar/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SearchView from "./pages/searchView/SearchView";
+import HomeView from "./pages/homeView/HomeView";
+import FilmDetailView from "./pages/filmDetailView/FilmDetailView";
+import "./App.scss";
 
+// function App() {
+//   return (
+//     <BrowserRouter>
+//      <Navbar />
+//       <Routes>
+//         <Route path="/" element={<SearchView />} />
+//         <Route path="search" element={<Users />}>
+//         </Route>
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// function Users() {
+//   return (
+//     <div>
+//       <nav>
+//         <Link to="me">My Profile</Link>
+//       </nav>
+
+//     </div>
+//   );
+// }
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <HeaderComponent></HeaderComponent>
+      <BrowserRouter>
+        <Navbar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<HomeView />} />
+            <Route path="/search" element={<SearchView />} />
+            <Route path="/film/:id" element={<FilmDetailView />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+      <FooterComponent></FooterComponent>
     </div>
   );
 }
