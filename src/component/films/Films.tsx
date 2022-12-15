@@ -21,14 +21,13 @@ function Films({ films }: Films) {
   return (
     <ul className="filmsList">
       {films.map((film, i) => (
-        <li className="filmsList__item">
+        <li key={i} className="filmsList__item">
           <Card
             title={film.title}
             id={film.id}
             image={film.image}
             year={film.year}
             link={"film/" + film.id}
-            key={i}
           ></Card>
         </li>
       ))}

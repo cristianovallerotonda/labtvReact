@@ -26,9 +26,11 @@ const Card: React.FC<CardProps> = ({
       <div className="card__media">
         <img src={image} loading="lazy" alt="Card image" />
 
-        <div className="card__date">
-          <span className="date__day">{year}</span>
-        </div>
+        {year && (
+          <div className="card__date">
+            <span className="date__day">{year}</span>
+          </div>
+        )}
         <span className="card__id">{id}</span>
       </div>
 
