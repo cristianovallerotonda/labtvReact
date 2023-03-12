@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Films from "../../component/films/Films";
 import SearchBox from "../../component/searchBox/SearchBox";
+import FilmDetailView from "../filmDetailView/FilmDetailView";
+
+
 
 function SearchView() {
   const [searchValue, setSearchValue] = useState("");
@@ -18,9 +21,15 @@ function SearchView() {
 
   return (
     <>
-      <SearchBox handleChange={setSearchValue} onClick={getMovieRequest} />
-      {movies ? <Films films={movies}></Films> : null}
+    
+      <SearchBox handleChange={setSearchValue} onClick={getMovieRequest}/>
+      {movies ? <Films films={movies}></Films> : null } 
+      
+
+      
+     
     </>
+    
   );
 }
 
