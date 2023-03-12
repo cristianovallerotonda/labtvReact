@@ -1,10 +1,27 @@
 import "./navbar.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import "/Users/cristianovallerotonda/Desktop/LAB TV React/labtv/src/App.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const toggledTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.body.className = theme;
+  }, [theme]);
+
   return (
-    <nav className="menu">
+    <nav className={`menu ${theme}`}>
       <div className="menu__container">
         <div className="menu__item">
           <i className="fa-solid fa-house"></i>
@@ -25,6 +42,7 @@ function Navbar() {
           <i className="fa-solid fa-magnifying-glass"></i>
           <Link to="/search">Ricerca </Link>
         </div>
+        <button onClick={toggledTheme}>Toggle Theme</button>
       </div>
     </nav>
 

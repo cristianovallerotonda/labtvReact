@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+:root {
+  --arancione: #e74c3c;
+}
+
+.dark {
+  --arancione: pink;
+
+}
+
 /* reset */
 html,
 body,
