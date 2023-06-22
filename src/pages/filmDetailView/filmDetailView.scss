@@ -2,7 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--bg-color-card);
+  color: var(--font-color);
   padding: 16px;
   border-radius: 8px;
   word-wrap: break-word;
@@ -36,7 +37,7 @@
   letter-spacing: 0.06em;
   display: inline-block;
   color: white;
-  background: var(--arancione);
+  background: var(--id-date-color);
   text-align: center;
   padding: 5px 15px;
   text-transform: uppercase;
@@ -109,7 +110,7 @@
 
 .detail__list dt {
   text-transform: uppercase;
-  background-color: #efefef;
+  background-color: var(--bg-color-card);
 }
 
 @media screen and (min-width: 1024px) {

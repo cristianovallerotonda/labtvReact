@@ -5,7 +5,7 @@ export function useFilmSearch(param: string) {
 
   console.log("entro qui?");
 
-  const wsFilmSearch = "https://imdb-api.com/en/API/Search/k_0a9so352/" + param;
+  const wsFilmSearch = "https://imdb-api.com/en/API/Search/k_5kqh9fye/" + param;
 
   useEffect(() => {
     fetch(wsFilmSearch)

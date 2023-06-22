@@ -16,7 +16,7 @@ export function useFilmDetail() {
   const [detail, setDetail] = useState<FilmDetailApiData>();
 
   const { id } = useParams();
-  const wsFilmDetail = "https://imdb-api.com/it/API/Title/k_pfx1xif6/" + id;
+  const wsFilmDetail = "https://imdb-api.com/it/API/Title/k_5kqh9fye/" + id;
 
   useEffect(() => {
     fetch(wsFilmDetail)
