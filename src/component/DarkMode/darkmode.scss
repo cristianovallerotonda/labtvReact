@@ -1,0 +1,58 @@
+.dark {
+  background: var(--bg-color);
+  color: #333;
+  transition: background-color 1s;
+  .menu {
+    background-color: rgba(0, 0, 0, 0.374);
+  }
+}
+.light {
+  color: #333;
+  transition: background-color 3s;
+}
+
+.toggle {
+  width: 4rem;
+  height: 2rem;
+  margin: 12px auto;
+  background-color: gray;
+  border-radius: 3rem;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.sun,
+.moon {
+  font-size: 1.2rem;
+}
+.sun {
+  color: white;
+}
+.circle {
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: lightgray;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (min-width: 750px) {
+  .toggle {
+    width: 4rem;
+    height: 2rem;
+    margin: 15px;
+    background-color: gray;
+    border-radius: 3rem;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

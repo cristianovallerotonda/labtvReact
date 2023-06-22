@@ -11,7 +11,7 @@ export function useFilms() {
   const [films, setFilms] = useState<FilmApiData[]>([]);
 
   useEffect(() => {
-    fetch("https://imdb-api.com/it/API/MostPopularMovies/k_pfx1xif6")
+    fetch("https://imdb-api.com/it/API/MostPopularMovies/k_5kqh9fye")
       .then((res) => res.json())
       .then((res) => {
         setFilms(res.items);

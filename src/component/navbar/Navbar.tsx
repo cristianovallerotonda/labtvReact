@@ -3,46 +3,60 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "/Users/cristianovallerotonda/Desktop/LAB TV React/labtv/src/App.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
-import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faAt } from "@fortawesome/free-solid-svg-icons";
+
+import DarkMode from "../DarkMode/DarkMode";
 
 function Navbar() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-  const toggledTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.body.className = theme;
-  }, [theme]);
+  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  // const toggledTheme = () => {
+  //   if (theme === "light") {
+  //     setTheme("dark");
+  //   } else {
+  //     setTheme("light");
+  //   }
+  // };
+  // useEffect(() => {
+  //   localStorage.setItem("theme", theme);
+  //   document.body.className = theme;
+  // }, [theme]);
+
+  // const animation = gsap.timeline({
+  //   paused: true,
+  //   reversed: true,
+  //   ease: "expo.inOut",
+  //   duration: 0.01,
+  // });
 
   return (
-    <nav className={`menu ${theme}`}>
+    <nav className="menu">
       <div className="menu__container">
         <div className="menu__item">
-          <i className="fa-solid fa-house"></i>
-          <Link to="/"> Home/Catalogo </Link>
+          <Link to="/">
+            <FontAwesomeIcon icon={faHouse} /> Home/Catalogo
+          </Link>
         </div>
         <div className="menu__item">
           <a className="nav-link">
-            <i className="fa-solid fa-arrow-right-to-bracket"></i>{" "}
-            Login/Registrazione
+            <FontAwesomeIcon icon={faArrowRightToBracket} /> Login/Registrazione
           </a>
         </div>
         <div className="menu__item">
-          <a className="nav-link">
-            <i className="fa-solid fa-at"></i> Contatti
+          <a>
+            <FontAwesomeIcon icon={faAt} /> Contatti
           </a>
         </div>
         <div className="menu__item">
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <Link to="/search">Ricerca </Link>
+          <Link to="/search">
+            <FontAwesomeIcon icon={faMagnifyingGlass} /> Ricerca
+          </Link>
         </div>
-        <button onClick={toggledTheme}>Toggle Theme</button>
+        <div className="menu__item">
+          <DarkMode></DarkMode>
+        </div>
       </div>
     </nav>
 

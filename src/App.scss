@@ -5,12 +5,17 @@
 }
 
 :root {
-  --arancione: #e74c3c;
+  --bg-color: #dedede;
+  --id-date-color: #e74c3c;
+  --bg-color-card: #fff;
+  --font-color: black;
 }
 
 .dark {
-  --arancione: pink;
-
+  --bg-color: #333;
+  --id-date-color: rgb(143, 61, 34);
+  --bg-color-card: #54595f;
+  --font-color: #fff;
 }
 
 /* reset */
@@ -142,7 +147,7 @@ table {
 /* my css */
 
 body {
-  background: #dedede;
+  background: var(--bg-color);
   font-family: "cristiano", Arial, Helvetica, sans-serif;
 }
 
